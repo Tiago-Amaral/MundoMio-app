@@ -1,0 +1,53 @@
+/* Estilos com ID */
+main {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 20px;
+}
+#historias  {
+  background-color: #f2ebfb; /* Cor para Histórias */
+  display: flex;
+  align-items: center;     /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente (opcional) */
+  height: 100%; 
+}
+
+#games {
+  background-color: #e9f9ef; /* Cor para Jogos */
+ 
+  display: flex;
+  align-items: center;     /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente (opcional) */
+  height: 100%; 
+}
+
+#desenhos {
+  background-color: #fff3e7; /* Cor para Desenhos */
+   
+  display: flex;
+  align-items: center;     /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente (opcional) */
+  height: 100%; 
+}
+
+#conquistas {
+  background-color: #e7f4fd; /* Cor para Conquistas */
+  
+  display: flex;
+  align-items: center;     /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente (opcional) */
+  height: 100%; 
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.card-interactive:hover {
+  transform: scale(1.05);
+}
+
