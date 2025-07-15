@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./layout/Sidebar";
 import UserProfile from "./UserProfile";
 
+import "./../styles/global.css";
+
 const Layout: React.FC = () => {
 	return (
 		<div className="flex flex-col md:flex-row min-h-screen bg-blue-50">
