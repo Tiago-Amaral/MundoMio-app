@@ -79,7 +79,31 @@ export default function DesenhoPage() {
 
 	const iniciarDesenho = (e: React.MouseEvent<HTMLCanvasElement>) => {
 		setIsDrawing(true);
-		desenhar(e);
+
+		const canvas = canvasRef.current;
+		if (canvas) {
+			const ctx = canvas.getContext("2d");
+			if (ctx) {
+				const rect = canvas.getBoundingClientRect();
+				const scaleX = canvas.width / rect.width;
+				const scaleY = canvas.height / rect.height;
+				const x = (e.clientX - rect.left) * scaleX;
+				const y = (e.clientY - rect.top) * scaleY;
+
+				ctx.lineWidth = tamanho[0];
+				ctx.lineCap = "round";
+
+				if (ferramenta === "pincel") {
+					ctx.globalCompositeOperation = "source-over";
+					ctx.strokeStyle = corAtual;
+				} else {
+					ctx.globalCompositeOperation = "destination-out";
+				}
+
+				ctx.beginPath();
+				ctx.moveTo(x, y);
+			}
+		}
 	};
 
 	const desenhar = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -90,8 +114,10 @@ export default function DesenhoPage() {
 			const ctx = canvas.getContext("2d");
 			if (ctx) {
 				const rect = canvas.getBoundingClientRect();
-				const x = e.clientX - rect.left;
-				const y = e.clientY - rect.top;
+				const scaleX = canvas.width / rect.width;
+				const scaleY = canvas.height / rect.height;
+				const x = (e.clientX - rect.left) * scaleX;
+				const y = (e.clientY - rect.top) * scaleY;
 
 				ctx.lineWidth = tamanho[0];
 				ctx.lineCap = "round";
